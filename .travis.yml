@@ -1,4 +1,4 @@
 language: ruby
 rvm:
  - 2.3
- script: ruby test.rb
+script: ruby test.rb
