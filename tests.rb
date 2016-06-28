@@ -1,8 +1,9 @@
 require 'minitest/autorun'
-
+require './beverage'
 require './human'
 require './coffee'
 require './expresso'
+require './Tea'
 
 class CaffeineTest < MiniTest::Test
   def test_humans_tend_to_be_sleepy
@@ -50,5 +51,15 @@ class CaffeineTest < MiniTest::Test
     trevor.buy expr
     trevor.drink!
     assert(trevor.alertness.between?(0.35, 0.45))
+  end
+
+  def test_tea
+    trevor = Human.new "Trevor"
+    tea1 = Tea.new "Tea"
+    assert tea1.sips_initial > 5.0
+    trevor.buy tea1
+    5.times { trevor.drink! }
+    refute tea1.empty?
+    assert trevor.alertness > 1.0
   end
 end

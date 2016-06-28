@@ -1,5 +1,6 @@
 require './coffee'
 require './expresso'
+require './tea'
 
 class Human
   attr_accessor :name,

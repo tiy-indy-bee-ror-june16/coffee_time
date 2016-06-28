@@ -1,6 +1,6 @@
-require './coffee'
+require './beverage'
 
-class Expresso < Coffee
+class Expresso < Beverage
   def initialize(name, sips_initial=1.0)
     self.name = name
     self.sips_initial = sips_initial
