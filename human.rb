@@ -5,19 +5,15 @@ require './tea'
 class Human
   attr_accessor :name,
                 :alertness,
-                # :has_coffee,
-                # :needs_coffee,
                 :my_coffee
 
   def initialize(name, alertness=0)
     self.name = name
     self.alertness = alertness
-    # self.has_coffee = false
-    # self.needs_coffee = true
   end
 
   def has_coffee?
-    if my_coffee != nil
+    if my_coffee
       true
     else
       false
