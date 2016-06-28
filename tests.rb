@@ -4,6 +4,12 @@ require './human'
 require './coffee'
 
 class CaffeineTest < MiniTest::Test
+
+  def setup
+    tsmf =[]
+    shot =[]
+  end
+
   def test_humans_tend_to_be_sleepy
     tyler = Human.new "Tyler"
     assert tyler.alertness < 0.1
@@ -36,4 +42,17 @@ class CaffeineTest < MiniTest::Test
     assert tsmf.empty?
     assert trevor.alertness > 0.9
   end
+
+  def test_humans_can_drink_espresso
+    harold = Human.new "Harold"
+    shot = Coffee.new "Espresso"
+    assert shot.full?
+
+    harold.buy shot
+    harold.drink!
+    assert harold.alertness > 0.39
+    refute shot.full?
+    assert shot.empty?
+  end
+
 end

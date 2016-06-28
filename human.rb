@@ -21,7 +21,7 @@ class Human
   end
 
   def needs_coffee?
-    if drinkcount
+    if drinkcount < 1
       true
     else
       false
@@ -35,8 +35,14 @@ class Human
 
   def drink!
     @drink.havedrink
-    @alertness = @alertness + 0.31
-    @drinkcount = @drinkcount - 1
+      if @drink.type == "Espresso"
+        @alertness = @alertness + 0.4
+      else
+        @alertness = @alertness + 0.31
+      end
+    if drink.sips == 0
+      @drinkcount = 0
+    end
   end
 
 end

@@ -4,11 +4,22 @@ class Coffee
 
   def initialize(type)
     self.type = type
-    @sips = 3
+    @sips = 0
+    sipsetter
+  end
+
+  def sipsetter
+    if type == "Espresso"
+      @sips = 1
+    else
+      @sips = 3
+    end
   end
 
   def full?
-    if @sips == 3
+    if @type == "Espresso" && @sips == 1
+      true
+    elsif @sips == 3
       true
     else
       false
