@@ -7,12 +7,6 @@ require './espresso'
 
 class CaffeineTest < MiniTest::Test
 
-  def setup
-    tsmf =[]
-    shot =[]
-    blackt =[]
-  end
-
   def test_humans_tend_to_be_sleepy
     tyler = Human.new "Tyler"
     assert tyler.alertness < 0.1
