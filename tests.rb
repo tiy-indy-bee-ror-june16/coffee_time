@@ -3,7 +3,7 @@ require './beverage'
 require './human'
 require './coffee'
 require './expresso'
-require './Tea'
+require './tea'
 
 class CaffeineTest < MiniTest::Test
   def test_humans_tend_to_be_sleepy
