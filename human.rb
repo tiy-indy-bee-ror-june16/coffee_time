@@ -33,16 +33,27 @@ class Human
     @drinkcount = @drinkcount + 1
   end
 
+  # def drink!
+  #   @drink.havedrink
+  #     if @drink.type == "Espresso"
+  #       @alertness = @alertness + 0.4
+  #     elsif @drink.class == Tea
+  #       @alertness = @drink.caffeine + @alertness
+  #     else
+  #       @alertness = @alertness + 0.31
+  #     end
+  #   if drink.sips == 0
+  #     @drinkcount = 0
+  #   end
+  # end
+
   def drink!
     @drink.havedrink
-      if @drink.type == "Espresso"
-        @alertness = @alertness + 0.4
-      else
-        @alertness = @alertness + 0.31
-      end
+    @alertness = @drink.caffeine + @alertness
     if drink.sips == 0
       @drinkcount = 0
     end
   end
+
 
 end
