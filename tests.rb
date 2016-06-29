@@ -36,4 +36,16 @@ class CaffeineTest < MiniTest::Test
     assert tsmf.empty?
     assert trevor.alertness > 0.9
   end
+
+  def test_humans_cant_drink_empty_cups
+    trevor = Human.new "Trevor"
+    tsmf = Coffee.new "Triple Shot Mocha Frappuccino"
+    trevor.buy tsmf
+
+    4.times { trevor.drink! }
+    assert tsmf.empty?
+    assert trevor.needs_coffee?
+    refute trevor.has_coffee?
+    refute tsmf.drink
+  end
 end
