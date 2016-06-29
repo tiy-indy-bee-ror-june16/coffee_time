@@ -3,6 +3,7 @@ require 'minitest/autorun'
 require './human'
 require './coffee'
 require './tea'
+require './espresso'
 
 class CaffeineTest < MiniTest::Test
 
@@ -47,7 +48,7 @@ class CaffeineTest < MiniTest::Test
 
   def test_humans_can_drink_espresso
     harold = Human.new "Harold"
-    shot = Espresso.new "Espresso"
+    shot = Espresso.new "Single Espresso"
     assert shot.full?
 
     harold.buy shot
@@ -59,7 +60,7 @@ class CaffeineTest < MiniTest::Test
 
   def test_humans_can_drink_tea
     julie = Human.new "Julie"
-    blackt = Tea.new "Black"
+    blackt = Tea.new "Earl Grey"
     assert blackt.full?
 
     julie.buy blackt
