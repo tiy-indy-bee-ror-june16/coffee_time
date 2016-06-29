@@ -51,10 +51,13 @@ class CaffeineTest < MiniTest::Test
     kayla = Human.new "Kayla"
     tea = Tea.new "English Breakfast Tea"
     kayla.buy tea
+    4.times { kayla.drink! }
+    kayla.buy tea
+    assert tea.empty?
     2.times { kayla.drink! }
     refute tea.full?
     refute tea.empty?
-    assert kayla.alertness > 0.4
-  end  
+    assert kayla.alertness > 1.0
+  end
 
 end
