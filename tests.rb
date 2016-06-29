@@ -36,4 +36,28 @@ class CaffeineTest < MiniTest::Test
     assert tsmf.empty?
     assert trevor.alertness > 0.9
   end
+
+  def test_humans_can_drink_espresso
+    liz = Human.new "Liz"
+    ses = Espresso.new "Solo Espresso Shot"
+    liz.buy ses
+    liz.drink!
+    assert liz.alertness >= 0.4
+    assert ses.empty?
+    refute ses.full?
+  end
+
+  def test_humans_can_drink_tea
+    kayla = Human.new "Kayla"
+    tea = Tea.new "English Breakfast Tea"
+    kayla.buy tea
+    4.times { kayla.drink! }
+    kayla.buy tea
+    assert tea.empty?
+    2.times { kayla.drink! }
+    refute tea.full?
+    refute tea.empty?
+    assert kayla.alertness > 1.0
+  end
+
 end
